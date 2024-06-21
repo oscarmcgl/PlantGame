@@ -72,6 +72,12 @@ def changename():
     #add code here
     pass
 
+def retrieve(info):
+    with open('database/users.json', 'r') as db:
+        data = json.load(db)
+        currentid = int(data[0][currentid])
+        return data[currentid][info] 
+
 def logout():
     with open('database/users.json') as db:
         data = json.load(db)
