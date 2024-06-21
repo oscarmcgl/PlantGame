@@ -1,0 +1,63 @@
+[
+    {
+        "currentuser": "none",
+        "currentid": 0
+    },
+    {
+        "id": 1,
+        "username": "admin",
+        "name": "Admin Test",
+        "owned_plants": [
+            0,
+            1,
+            2,
+            3,
+            4
+        ],
+        "coins": 100,
+        "level": 0,
+        "experience": 0,
+        "inventory": {
+            "fertilizer": 0,
+            "water": 0,
+            "pesticide": 0,
+            "cuttings": 0
+        }
+    },
+    {
+        "id": 2,
+        "username": "oscarmcgl",
+        "name": "Oscar",
+        "owned_plants": [
+            0,
+            1,
+            2
+        ],
+        "coins": 50,
+        "level": 0,
+        "experience": 0,
+        "inventory": {
+            "fertilizer": 0,
+            "water": 0,
+            "pesticide": 0,
+            "cuttings": 0
+        }
+    },
+    {
+        "id": 3,
+        "username": "test",
+        "name": "TESTINGGG",
+        "owned_plants": [
+            0
+        ],
+        "coins": 100,
+        "level": 0,
+        "experience": 0,
+        "inventory": {
+            "fertilizer": 0,
+            "water": 0,
+            "pesticide": 0,
+            "cuttings": 0
+        }
+    }
+]
