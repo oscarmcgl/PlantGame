@@ -1,6 +1,6 @@
 #https://www.pythonguis.com/tutorials/pyside6-signals-slots-events/
 
-import retrieve as r
+import plants as p
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton, QRadioButton
 import sys
@@ -23,7 +23,7 @@ class MainWindow(QMainWindow):
     
     def button_clicked(self, num):
         print('Button clicked!')
-        title = r.retrieve_data(num, 'name')
+        title = p.retrieve_data(num, 'name')
         MainWindow.changeTitle(self, title)
     
     def button_check(self, checked):
