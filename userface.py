@@ -11,7 +11,6 @@ import json
 def login(username):
     with open('database/users.json') as db:
         data = json.load(db)
-        print(data)
         for i in range(1, len(data)):
             if data[i]['username'] == username:
 
@@ -26,7 +25,19 @@ def login(username):
         else:
             print(f"User {username} not found, would you like to create a profile? (y/n)")
 
+            ans = input().lower()
+            if ans == 'y':
+                createprofile()
+            else:
+                print("Returning to main menu")
+                #! add code to return to main menu 
+                #? needs a main menu??
+
 def createprofile():
+    if checklogin() is True:
+        print("Already logged in, cannot create profile")
+        return
+
     chosen = False
     while chosen is False:
         username = input("Enter a username: ")
@@ -68,33 +79,52 @@ def createprofile():
         with open('database/users.json', "w") as db:
             json.dump(data, db, indent=4)
 
-def checklogin(): 
+def checklogin(): #returns true or false based on login
     with open ('database/users.json','r') as db:
         data = json.load(db)
+
+        if data[0]['currentuser'] == "none":
+            return False
+        else:
+            return True
     
 
 
-def changename():
-    #add code here
-    pass
+def changename(nname):
+    if checklogin() is False:
+        print("Not logged in, cannot change name")
+    
+    else:
+        with open('database/users.json') as db:
+            data = json.load(db)
+            currentid = int(data[0]['currentid'])
+            data[currentid]['name'] = nname
+
+            with open('database/users.json', 'w') as db:
+                json.dump(data, db, indent=4)
+            print(f"Name changed to {nname}")
 
 def retrieve(info):
     with open('database/users.json', 'r') as db:
         data = json.load(db)
-        currentid = int(data[0][currentid])
+        currentid = int(data[0]['currentid'])
         if currentid == 0:
             print('Not logged in.')
             return None
         else:                    
             return data[currentid][info] 
+        
+        
 def logout():
     with open('database/users.json') as db:
         data = json.load(db)
         user = data[0]['currentuser']
         data[0]['currentuser'] = "none"
+        data[0]['currentid'] = 0
 
         with open('database/users.json', 'w') as db:
             json.dump(data, db, indent=4)
+
         print(f"Logged out {user}")
 
 
