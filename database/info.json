@@ -7,7 +7,7 @@
         "light": "Bright, indirect light",
         "humidity": "High",
         "resistance": "Low",
-        "file": "database/images/monstera.jpg"
+        "file": "database/images/Monstera.png"
     },
 
     {
@@ -18,7 +18,7 @@
         "light": "Low to bright, indirect light",
         "humidity": "Low",
         "resistance": "High",
-        "file": "database/images/snake.jpg"
+        "file": "database/images/Snake.png"
     },
 
     {
@@ -40,7 +40,7 @@
         "light": "Bright, indirect light",
         "humidity": "Medium",
         "resistance": "Medium",
-        "file": "database/images/rubber.jpg"
+        "file": "database/images/Rubber.png"
     },
 
     {
@@ -51,6 +51,6 @@
         "light": "Bright, indirect light",
         "humidity": "Low",
         "resistance": "High",
-        "file": "database/images/aloe.jpg"
+        "file": "database/images/AloeVera.png"
     }
 ]
