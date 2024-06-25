@@ -34,15 +34,3 @@ def deduct(value):
 
 def view():
     return uf.retrieve('coins') #? what is the actual point of this 
-
-
-uf.login('oscarmcgl')
-num = view()
-print(num)
-add(10)
-num = view()
-print(num)
-deduct(5)
-num = view()
-print(num)
-uf.logout()
