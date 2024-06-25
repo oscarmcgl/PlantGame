@@ -16,7 +16,7 @@
         ],
         "coins": 100,
         "level": 0,
-        "experience": 679,
+        "experience": 100,
         "inventory": {
             "fertilizer": 0,
             "water": 0,
@@ -52,7 +52,7 @@
         ],
         "coins": 100,
         "level": 0,
-        "experience": 1400,
+        "experience": 14,
         "inventory": {
             "fertilizer": 0,
             "water": 0,
