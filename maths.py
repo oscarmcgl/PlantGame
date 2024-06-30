@@ -57,4 +57,28 @@ def worded_basic():
         print(question, answer)
 
     else: #subtraction
-        pass 
+        name = random.choice(names)
+        choices = random.randint(0,len(fruit)-1)
+
+        num1 = random.randint(1, 10)
+        num2 = random.randint(1, num1)
+        answer = num1 - num2
+
+        if num1 == 1:
+            choice1 = fruit[choices]
+        else:
+            choice1 = fruitpl[choices]
+        if num2 == 1:
+            choice2 = fruit[choices]
+        else:
+            choice2 = fruitpl[choices]
+
+        choice3 = fruitpl[choices]
+
+        question = sub_questions[0].format(name=name, num1=num1, num2=num2, choice1=choice1, choice2=choice2, choice3=choice3)
+        print(question, answer)
+    
+worded_basic()
+
+def worded_division():
+    pass
