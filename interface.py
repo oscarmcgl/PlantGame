@@ -1,49 +1,43 @@
+
 #https://www.pythonguis.com/tutorials/pyside6-signals-slots-events/
 
 import plants as p
-from PySide6.QtCore import QSize, Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QPushButton, QRadioButton
-import sys
-import time
 
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
 
-        self.setWindowTitle('Plants!')
-        
-        button1 = QRadioButton('Monstera')
-        button1.clicked.connect(lambda: self.button_clicked(0))
+from textual.app import App, ComposeResult
+from textual.widgets import Header, Footer, Button, Static
+from textual.containers import ScrollableContainer
 
-        button2 = QPushButton('Snake Plant')
-        button2.setCheckable(True)
-        button2.clicked.connect(lambda: self.button_clicked(1))
+class Title(Static):
+    """A title widget."""
 
-        self.setCentralWidget(button1)
-    
-    def button_clicked(self, num):
-        print('Button clicked!')
-        title = p.retrieve_data(num, 'name')
-        MainWindow.changeTitle(self, title)
-    
-    def button_check(self, checked):
-        print('Checked:', checked)
-    
-    def changeTitle(self, title):
-        self.setWindowTitle(title)
+    def __init__(self, text: str):
+        super().__init__(f"🌱 {text} 🌱")
 
-class InfoWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        
-    
-    
+class Login(Static):
+    """A login widget."""
 
-app = QApplication(sys.argv)
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        """Handle the button press event."""
+        pass
 
-window = MainWindow()
-window.show()
+class Menu(App):
 
-info_window = InfoWindow()
+    CSS_PATH = "interface.tcss"
+    BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
-app.exec()
+    def compose(self) -> ComposeResult:
+        """Create child widgets for the app."""
+        yield Header()
+        yield Footer()
+        yield Title("Plants in Bloom")
+        yield Button("Login", id="login", variant="success")
+
+    def action_toggle_dark(self) -> None:
+        """An action to toggle dark mode."""
+        self.dark = not self.dark
+
+
+if __name__ == "__main__":
+    app = Menu()
+    app.run()
