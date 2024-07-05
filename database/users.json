@@ -31,7 +31,9 @@
         "owned_plants": [
             0,
             1,
-            2
+            2,
+            3,
+            4
         ],
         "coins": 65,
         "level": 0,
