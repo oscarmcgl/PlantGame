@@ -114,7 +114,26 @@ def retrieve(info):
             currentid = data[0]['currentid']                    
             return data[currentid][info] 
         
-        
+def store(info, data):
+    with open('databaser/users.json', 'r') as db:
+        data = json.load(db)
+        if checklogin() is False:
+            print('Not logged in.')
+            return None
+        else:
+            try:
+                currentid = data[0]['currentid']
+                data[currentid][info] = data
+                with open('database/users.json', 'w') as db:
+                    json.dump(data, db, indent=4)
+                    print("Data stored")
+            except:
+                print("Does not exist")
+                return None
+
+
+
+
 def logout():
     with open('database/users.json') as db:
         data = json.load(db)
