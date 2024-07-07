@@ -13,7 +13,7 @@ def checkexperience():
         print("Not logged in")
         return None
     else:
-        experience = uf.retrieve('experience')
+        experience: int = uf.retrieve('experience')
         current_level = uf.retrieve('level')
         if experience >= 100:
             experience -= 100

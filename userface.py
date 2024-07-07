@@ -1,10 +1,9 @@
 #logs in a user with their username based off users.json, else will create profile for username, add verification check on username
 
+#todo add a password system
 
-#todo add ability to check username with json file
-#todo add ability to create profile for username
-#todo add ability to verify username
-#todo add ability co change username
+database: str | None = "database/users.json"
+assert database, "Cannot run without user database"
 
 import json
 
@@ -103,6 +102,24 @@ def changename(nname):
             with open('database/users.json', 'w') as db:
                 json.dump(data, db, indent=4)
             print(f"Name changed to {nname}")
+
+def changeusername(nusername):
+    if checklogin() is False:
+        print("Not logged in, cannot change username")
+    else:
+        with open('database/users.json') as db:
+            data = json.load(db)
+            for i in range(1, len(data)):
+                if data[i]['username'] == nusername:
+                    print("Username already taken")
+                    break
+            else:
+                    currentid = int(data[0]['currentid'])
+                    data[currentid]['username'] = nusername
+                    with open('database/users.json', 'w') as db:
+                        json.dump(data, db, indent=4)
+                        print(f"Username changed to {nusername}")   
+
 
 def retrieve(info):
     with open('database/users.json', 'r') as db:
