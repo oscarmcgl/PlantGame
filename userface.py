@@ -144,8 +144,11 @@ def store(info, data):
                 with open('database/users.json', 'w') as db:
                     json.dump(data, db, indent=4)
                     print("Data stored")
-            except:
+            except KeyError:
                 print("Does not exist")
+                return None
+            except: 
+                print("Error")
                 return None
 
 
