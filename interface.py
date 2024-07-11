@@ -5,7 +5,7 @@ import plants as p
 
 
 from textual.app import App, ComposeResult
-from textual.widgets import Header, Footer, Button, Static
+from textual.widgets import Header, Footer, Button, Static, Input
 from textual.containers import ScrollableContainer
 
 class Title(Static):
@@ -31,7 +31,10 @@ class Menu(App):
         yield Header()
         yield Footer()
         yield Title("Plants in Bloom")
-        yield Button("Login", id="login", variant="success")
+        yield Input(placeholder="Username", id="username", type="text")
+        yield Input(placeholder="Password", id="password", type="text", password=True )
+        yield Button("Login", id="login", variant="default")
+
 
     def action_toggle_dark(self) -> None:
         """An action to toggle dark mode."""

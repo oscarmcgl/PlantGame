@@ -5,6 +5,19 @@ Title {
 }
 
 Button {
-    width: 15;
-    layout: horizontal;
+    align-horizontal: center;
+    align-vertical: middle;
 }
+
+Input.-valid {
+        border: tall $success 60%;
+    }
+Input.-valid:focus {
+        border: tall $success;
+    }
+Input {
+        margin: 1 1;
+    }
+Label {
+        margin: 1 2;
+    }
