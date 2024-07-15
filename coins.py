@@ -34,3 +34,15 @@ def deduct(value):
 
 def view():
     return uf.retrieve('coins') #? what is the actual point of this 
+
+
+def transfer(): 
+    if uf.checklogin() is False:
+        return None
+    else:
+        currentuser = uf.currentuser()
+        currentid = uf.currentid()
+
+        pass 
+
+        #todo add transaction here + verification check

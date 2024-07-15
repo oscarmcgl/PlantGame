@@ -167,3 +167,19 @@ def logout():
         print(f"Logged out {user}")
 
 
+def currentid():
+    if not checklogin():
+        with open('databaser/users.json', 'r') as db:
+            data = json.load(db)
+            return data[0]['currentid']
+    else:
+        return None
+
+def currentuser():
+    if not checklogin():
+        with open('databaser/users.json', 'r') as db:
+            data = json.load(db)
+            return data[0]['currentuser']
+    else:
+        return None
+    
